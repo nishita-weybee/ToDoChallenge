@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <title>ToDoList</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Todo Task</h1>
+            <div class="inputs">
+                <input type="text" placeholder="Please Select Add Option" class="input-field" disabled>
+                <div class="functions">
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="filter-btn"><i class="fa-solid fa-sliders"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="status">
+            <div> <span class="dot1"></span>All</div>
+            <div> <span class="dot2"></span>Active</div>
+            <div> <span class="dot3"></span>Completed</div>
+        </div>
+        <div class="cards">
+            <div class="all-task">
+                <div class="box-all">
+                    <div class="top-details">
+                        <h2>ALL TASKS</h2>
+                        <button class="all-task-btn"><i class="fa-solid fa-angle-down"></i></button>
+                    </div>
+                    <P class="no-task-all">No Task !</P>
+                </div>
+                <div class="main-all"></div>
+        
+            </div>
+            <div class="active-task">
+                <div class="box">
+                    <div class="top-details">
+                        <h2>ACTIVE TASKS</h2>
+                        <button class="active-task-btn"><i class="fa-solid fa-angle-down"></i></button>
+                    </div>
+                    <P class="no-task-active">No Task !</P>
+                </div>
+                <div class="main-active"></div>
+            </div>
+            <div class="completed-task">
+                <div class="box">
+                    <div class="top-details">
+                        <h2>COMPELTED TASKS</h2>
+                        <button class="completed-task-btn"><i class="fa-solid fa-angle-down"></i></button>
+                    </div>
+                    <P class="no-task-completed"> No Task !</P>
+                </div>
+                <div class="main-completed"></div>
+        
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+</body>
+<script src="index.js"></script>
+
+</html>

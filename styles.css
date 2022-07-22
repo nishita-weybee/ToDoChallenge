@@ -1,0 +1,529 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Calibri;
+}
+
+:root {
+  --title-color: #66447f;
+  --all-task: #cdbdf4;
+  --active-task: #bdf4cd;
+  --compelted-task: #f4cdbd;
+  --active-btn: #89bcaf;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+.container .header h1 {
+  color: var(--title-color);
+  margin: 0;
+  padding: 0.7em;
+  text-align: center;
+  font-size: 2.5em;
+}
+.container .header .inputs {
+  display: flex;
+  justify-content: center;
+}
+.container .header .inputs input {
+  width: 700px;
+  padding: 1em;
+  border-radius: 1.5em;
+  text-decoration: none;
+  border: 1px solid var(--title-color);
+  margin-right: 1em;
+}
+.container .header .inputs input:focus {
+  outline: 0;
+  border: 2px solid #66447f;
+}
+.container .header .inputs .functions {
+  display: flex;
+}
+.container .header .inputs .functions button {
+  border-radius: 30px;
+  padding: 0.6em 0.7em;
+  border: none;
+  text-decoration: none;
+  background-color: var(--title-color);
+  font-size: 20px;
+  margin: 0.1em;
+}
+.container .header .inputs .functions button i {
+  color: white;
+}
+.container .header .inputs .functions .active {
+  background-color: var(--active-btn);
+}
+.container .status {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5em 16% 0 16%;
+  padding-top: 0.8em;
+}
+.container .status .dot1 {
+  height: 25px;
+  width: 25px;
+  background-color: var(--all-task);
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.3em;
+}
+.container .status .dot2 {
+  height: 25px;
+  width: 25px;
+  background-color: var(--active-task);
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.3em;
+}
+.container .status .dot3 {
+  height: 25px;
+  width: 25px;
+  background-color: var(--compelted-task);
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.3em;
+}
+.container .cards {
+  display: flex;
+  justify-content: space-between;
+}
+.container .cards .all-task {
+  margin: 0.8em;
+  width: 32%;
+  background-color: var(--all-task);
+  border-radius: 2em;
+  font-size: 13.5px;
+  font-family: Calibri;
+}
+.container .cards .all-task .box-all {
+  padding: 0.7em 1.5em;
+}
+.container .cards .all-task .box-all .top-details {
+  display: flex;
+  justify-content: space-between;
+}
+.container .cards .all-task .box-all .top-details button.all-task-btn {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.container .cards .all-task .box-all .top-details h2 {
+  letter-spacing: 0.4em;
+}
+.container .cards .all-task .task-list {
+  padding: 0.7em 1.5em;
+  background: var(--active-task);
+  width: 80%;
+  margin: auto;
+  border-radius: 1em;
+  margin-bottom: 1em;
+}
+.container .cards .all-task .task-list .task-name {
+  background-color: inherit;
+  border: none;
+  padding: 0.5em 0;
+}
+.container .cards .all-task .task-list .list-bottom {
+  padding: 0.5em 0;
+  display: flex;
+  justify-content: space-between;
+}
+.container .cards .all-task .task-list .list-bottom .edit-btn,
+.container .cards .all-task .task-list .list-bottom .delete-btn {
+  border: none;
+  background-color: inherit;
+}
+.container .cards .all-task .task-list .list-bottom .edit-btn i,
+.container .cards .all-task .task-list .list-bottom .delete-btn i {
+  color: var(--title-color);
+  font-size: 1.2em;
+  font-weight: lighter;
+}
+.container .cards .all-task .task-list .list-bottom .task-activation {
+  /* Rounded sliders */
+}
+.container .cards .all-task .task-list .list-bottom .task-activation .switch {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 17px;
+}
+.container .cards .all-task .task-list .list-bottom .task-activation .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.container .cards .all-task .task-list .list-bottom .task-activation .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #808080;
+  transition: 0.4s;
+}
+.container .cards .all-task .task-list .list-bottom .task-activation .slider:before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+.container .cards .all-task .task-list .list-bottom .task-activation input:checked + .slider {
+  background-color: #66447f;
+}
+.container .cards .all-task .task-list .list-bottom .task-activation input:focus + .slider {
+  box-shadow: 0 0 1px #66447f;
+}
+.container .cards .all-task .task-list .list-bottom .task-activation input:checked + .slider:before {
+  transform: translateX(20px);
+}
+.container .cards .all-task .task-list .list-bottom .task-activation .slider.round {
+  border-radius: 34px;
+}
+.container .cards .all-task .task-list .list-bottom .task-activation .slider.round:before {
+  border-radius: 50%;
+}
+.container .active-task {
+  margin: 0.8em;
+  width: 32%;
+  background-color: var(--active-task);
+  border-radius: 2em;
+  font-size: 13.5px;
+  font-family: Calibri;
+}
+.container .active-task .box {
+  padding: 0.7em 1.5em;
+}
+.container .active-task .box .top-details {
+  display: flex;
+  justify-content: space-between;
+}
+.container .active-task .box .top-details button.active-task-btn {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.container .active-task .box .top-details h2 {
+  letter-spacing: 0.4em;
+}
+.container .active-task .task-list {
+  padding: 0.7em 1.5em;
+}
+.container .active-task .task-list .task-name {
+  background-color: inherit;
+  border: none;
+  padding: 0.5em 0;
+}
+.container .active-task .task-list .list-bottom {
+  padding: 0.5em 0;
+  display: flex;
+  justify-content: space-between;
+}
+.container .active-task .task-list .list-bottom .edit-btn,
+.container .active-task .task-list .list-bottom .delete-btn {
+  border: none;
+  background-color: inherit;
+}
+.container .active-task .task-list .list-bottom .edit-btn i,
+.container .active-task .task-list .list-bottom .delete-btn i {
+  color: var(--title-color);
+  font-size: 1.2em;
+  font-weight: lighter;
+}
+.container .active-task .task-list .list-bottom .task-activation {
+  /* Rounded sliders */
+}
+.container .active-task .task-list .list-bottom .task-activation .switch {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 17px;
+}
+.container .active-task .task-list .list-bottom .task-activation .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.container .active-task .task-list .list-bottom .task-activation .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #808080;
+  transition: 0.4s;
+}
+.container .active-task .task-list .list-bottom .task-activation .slider:before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+.container .active-task .task-list .list-bottom .task-activation input:checked + .slider {
+  background-color: #66447f;
+}
+.container .active-task .task-list .list-bottom .task-activation input:focus + .slider {
+  box-shadow: 0 0 1px #66447f;
+}
+.container .active-task .task-list .list-bottom .task-activation input:checked + .slider:before {
+  transform: translateX(20px);
+}
+.container .active-task .task-list .list-bottom .task-activation .slider.round {
+  border-radius: 34px;
+}
+.container .active-task .task-list .list-bottom .task-activation .slider.round:before {
+  border-radius: 50%;
+}
+.container .completed-task {
+  margin: 0.8em;
+  width: 32%;
+  background-color: var(--compelted-task);
+  border-radius: 2em;
+  font-size: 13.5px;
+  font-family: Calibri;
+}
+.container .completed-task .box {
+  padding: 0.7em 1.5em;
+}
+.container .completed-task .box .top-details {
+  display: flex;
+  justify-content: space-between;
+}
+.container .completed-task .box .top-details button.completed-task-btn {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.container .completed-task .box .top-details h2 {
+  letter-spacing: 0.4em;
+}
+.container .completed-task .task-list {
+  padding: 0.7em 1.5em;
+}
+.container .completed-task .task-list .task-name {
+  background-color: inherit;
+  border: none;
+  padding: 0.5em 0;
+}
+.container .completed-task .task-list .list-bottom {
+  padding: 0.5em 0;
+  display: flex;
+  justify-content: space-between;
+}
+.container .completed-task .task-list .list-bottom .edit-btn,
+.container .completed-task .task-list .list-bottom .delete-btn {
+  border: none;
+  background-color: inherit;
+}
+.container .completed-task .task-list .list-bottom .edit-btn i,
+.container .completed-task .task-list .list-bottom .delete-btn i {
+  color: var(--title-color);
+  font-size: 1.2em;
+  font-weight: lighter;
+}
+.container .completed-task .task-list .list-bottom .task-activation {
+  /* Rounded sliders */
+}
+.container .completed-task .task-list .list-bottom .task-activation .switch {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 17px;
+}
+.container .completed-task .task-list .list-bottom .task-activation .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.container .completed-task .task-list .list-bottom .task-activation .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #808080;
+  transition: 0.4s;
+}
+.container .completed-task .task-list .list-bottom .task-activation .slider:before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+.container .completed-task .task-list .list-bottom .task-activation input:checked + .slider {
+  background-color: #66447f;
+}
+.container .completed-task .task-list .list-bottom .task-activation input:focus + .slider {
+  box-shadow: 0 0 1px #66447f;
+}
+.container .completed-task .task-list .list-bottom .task-activation input:checked + .slider:before {
+  transform: translateX(20px);
+}
+.container .completed-task .task-list .list-bottom .task-activation .slider.round {
+  border-radius: 34px;
+}
+.container .completed-task .task-list .list-bottom .task-activation .slider.round:before {
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 1080px) {
+  .container .header .inputs {
+    width: 85%;
+    margin: 0 auto;
+  }
+  .container .header .inputs input {
+    width: 550px;
+  }
+  .container .cards {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .container .cards .all-task {
+    width: 98%;
+    padding-bottom: 10px;
+  }
+  .container .cards .active-task {
+    width: 98%;
+    padding-bottom: 10px;
+  }
+  .container .cards .active-task .task-list {
+    width: 80%;
+    margin: auto;
+  }
+  .container .cards .completed-task {
+    width: 98%;
+    padding-bottom: 10px;
+  }
+  .container .cards .completed-task .task-list {
+    width: 80%;
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 875px) {
+  .container {
+    width: 90%;
+  }
+  .container .header .inputs {
+    width: 92%;
+  }
+  .container .header .inputs input {
+    width: 500px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .container {
+    width: 92%;
+  }
+  .container .header .inputs {
+    width: 100%;
+  }
+  .container .header .inputs input {
+    width: 400px;
+  }
+  .container .cards .status {
+    text-align: left;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .container .header .inputs input {
+    width: 260px;
+    margin-right: 0.8em;
+  }
+  .container .header .inputs .functions button {
+    padding: 0.4em 0.5em;
+  }
+  .container .cards {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .container .cards .all-task {
+    width: 90%;
+  }
+  .container .cards .active-task {
+    width: 90%;
+  }
+  .container .cards .completed-task {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .container {
+    width: 100%;
+  }
+  .container .header .inputs input {
+    width: 161px;
+    padding: 0.8em;
+  }
+  .container .header .inputs .functions button {
+    padding: 0.2em;
+    height: 36px;
+    width: 36px;
+    font-size: 15px;
+  }
+  .container .cards {
+    width: 78%;
+    margin: 1em auto;
+  }
+  .container .cards .all-task {
+    padding: 0.4em;
+  }
+  .container .cards .all-task .box-all {
+    height: auto;
+    font-size: 11.5px;
+    padding: 0.4em 1em;
+  }
+  .container .cards .all-task .box-all h2 {
+    letter-spacing: 0.2em;
+  }
+  .container .cards .active-task {
+    padding: 0.4em;
+  }
+  .container .cards .active-task .box {
+    height: auto;
+    font-size: 11.5px;
+    padding: 0.4em 1em;
+  }
+  .container .cards .active-task .box h2 {
+    letter-spacing: 0.2em;
+  }
+  .container .cards .completed-task {
+    padding: 0.4em;
+  }
+  .container .cards .completed-task .box {
+    height: auto;
+    font-size: 11.5px;
+    padding: 0.4em 1em;
+  }
+  .container .cards .completed-task .box h2 {
+    letter-spacing: 0.2em;
+  }
+}/*# sourceMappingURL=styles.css.map */
